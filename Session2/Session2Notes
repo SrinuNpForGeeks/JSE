@@ -1,0 +1,107 @@
+Platform Dependent :-
+*******************
+	An executable block which can not be carried and executed in multiple operating systems then it is called platform dependent.
+	Ex : c, c++,cobol etc...
+
+Refer Diagram :
+
+
+PlatForm Independent :-
+*********************
+	An executable block which can be carried and executed in multiple operating systems by using an external software then it is called Platform Independent.
+
+	Ex : Java, .Net etc...
+
+Refer Diagram :
+
+When we compile a One.java program it will generate a "One.class" file.
+The "One.class" file does not contains any instructions related to operating system.
+The "One.class" file is in the form of byte code.
+
+Byte Code :-
+*********
+Byte Code is a reusable code. Which can be converted into Machine laguage by the Java Virtual Machine (JVM).
+Byte code does not contains any instructions related to operating system.
+
+Java Virtual Machine (JVM) :-
+**************************
+JVM is a software given by Oracle . JVM can converts the byte code into Machine Language.
+JVM is implemented using c,c++ language so that JVM is  platform dependent.
+
+The Oracle has given a seperate JVM for every operating System.
+
+Java is a Object Oritented Programing language so in an Object Orientation everthing can be represented as Classes and Objects.
+
+
+******************************************************************************
+Developing first program in java :-
+*******************************
+1. Write a program
+
+	public class HelloWorld
+	{
+public static void main(String args[])
+{
+  System.out.println(" Welcome To Java ");
+  
+}
+	}
+
+2. Save the file name as "HelloWorld.java" into ../JSE/class1 directory.
+
+3. Open command prompt with directory ../JSE/class1
+	
+		Navigate to the directory folder then type "cmd" up on the folder browser.
+
+		This will open command prompt with the directory location as ../JSE/class1.
+
+4.Compile the program
+
+		javac HelloWorld.java
+	
+	If the programe compiles successfully, then java compiler generates a HelloWorld.class file into ../JSE/class1 directory.
+
+
+5. Run the java program.
+
+		java HelloWorld
+
+
+Observations :-
+************
+	=>  JVM always loads .class file into RAM then calls the main(..) method, if the main(..) method is not defined properly, gives an error at Runtime.
+		
+	=> Every change in .java file will be reflected  after the compilation.
+	
+	=> JVM ClassNotFoundException, if we pass invalid class name while running the program.
+
+	=> When the class is not public, then the file name and the class name can be different.
+		Ex:-
+			HelloWorld.java
+
+			class Sample
+				{
+			public static void main(String args[])
+			{
+			......
+			......
+			}
+				}
+
+
+		Here the file name is HelloWorld.java but the class name is "Sample".
+		When we compile this program , Sample.class file will be generated so at while running the program we should give, =>  java Sample
+
+	=> If we make a class as "public" then the file name shoudl be "<classname>.java" Otherwise Java Compiler throws an error at compile time.
+
+		Sample.java
+		***********
+		public	class Sample
+				{
+			public static void main(String args[])
+			{
+			......
+			......
+			}
+				}
+
