@@ -1,0 +1,232 @@
+There are three kinds of applications.
+
+1.Stand Alone Applications
+2.Web Applications
+3.Mobile Applications
+
+
+Stand Alone Applications :-
+***********************
+An application which can be accessible only within the machine. Which can not be accessible outside the machine.
+These applications can be called as Stand Alone Applications.
+
+Ex:  VLC Media player, window media player, Google Chrome.
+
+Within the Stand Alone Application's the data can not be sharable.
+
+WebApplications :-
+***************
+An application through the web can be called as WebApplication.
+Within the web application the data can be sharable.
+All web applications gives 24/7 access.
+
+Ex :- Gmail, Facebook etc..
+
+Enterprise Application :-
+***********************
+Enterprise Application is a business application which contains complex and heavy weight business logics.
+
+Ex: Flipkart , Amazon , Bank Applications etc..
+
+Mobile Applications :-
+********************
+All the applications can be accessible within the mobile.
+
+Ex : android , play store etc..
+
+Java is divided into 3 parts.
+
+1. Java Standard Edition (JSE)
+2. Java Mobile Edition (JME)
+3. Java Enterprise Edition (JEE)
+
+refer diagram "JavaEdition.png"
+
+
+
+
+
+Java Development Kit (JDK) :-
+*****************************
+=> Java Development Kit(JDK) is software which is given by Oracle Corp in order to develop java applications.
+=> The Oracle corp has given separate JDK for every operating system.
+
+The JDK is divided into two parts.
+
+1.Java Tools
+
+2.Java Runtime Environment(JRE)
+
+
+
+Java Tools :- 
+**********
+Java Tools are used by the java programmer in order to compile and run the java programs.
+All the Java Tools are .exe files.
+
+Ex: -
+
+	javac  => This is used to compile java programs.
+	java   => This is used to run the java programs.
+	javap  => this is used to know the meta information about the java programs.
+
+	etc.
+
+
+
+Java Runtime Environment(JRE) :-
+****************************
+=> All the Java programs will be executed in Java Runtime Environment(JRE).
+=> Whenever we are trying to run the java programs on the top of the operating system  JRE will be activated.
+=> The JRE contains the implementation for "Java Virtual Machine(JVM)" and Other Helper Files.
+=> Once the JRE is activated the JVM will automatically activated.
+=> JVM internally uses the Helper files of JRE to convert the Byte code into Machine Language.
+
+Refer JDK.png  and JavaExe.png diagrams.
+
+Data Types :-
+*********
+
+	Data Types can be used declare a data member.
+	Data Types can be classified based on Data.
+
+		1. Numeric Data
+			data types as : byte(1B),short(2B),int(4B),long(8B)
+
+		2. Floating Data
+			data types as : float(4B) , double(8B)
+		
+		3. String Data
+			data type is :  String (Here memory is not fixed. Allocates the memory directly)
+
+		4. Boolean Data 
+
+			data type is : boolean (1B) => value either true or false.
+		5. Character Data :
+
+			data type is : char (1B)
+
+	Ex: refer DataMembersEx.java
+
+Conversion :-
+**********
+
+		It's a concept of converting one data type to another data type.
+
+	Implicit Conversion :- Here the data type conversion automatically taken care by JVM.  
+			Ex: byte => short => int => long 
+				float => double
+				char => byte
+				
+
+		int count = 10;
+		long s = count ; // converting int to long .implicit conversion.
+
+
+Explicit Conversion :- Here the programer has to take care of data type conversion . 
+
+		refer ImplicitAndExplicitConversionEx.java
+
+
+	In Explicit Conversion there is high possibility of LossyConversion(data loss), programer has to think about it.
+
+
+		int count = 257;
+		byte b = (byte) count;
+
+		observe the value of b is 1 LossyConversion(data loss).
+
+		refer LossyConversionEx.java
+
+
+***************************************
+Variable :-
+*******
+	Variable is a memory location which is having the capability of to store the data.
+	int count = 10; 
+
+	refer diagram.
+
+upstanding "if-else" statement :-
+***************************
+"if-else" statement can be used to check the condition.
+
+Syntax :-
+******
+	if(Condition)
+	{
+	.... //Condition is true
+	.... 
+	}else{
+	.... //Condition is  false
+	....
+	}
+
+
+upstanding "if-else-if" statement :-
+***************************
+
+if(Condition)
+	{
+.....
+.....//
+	}
+	else if(Condition){
+.....
+.....
+	} 
+else{
+.....
+.....
+	
+    }
+
+increment and decrement operators :-
+**********************************
+
+++ (Increment operator ) :-
+*************************
+
+i++ which is equals to i = i+1;
+
+Pre Increment :-
+*************
+In case of pre increment the value will be incremented by one at the time of statment execution itself.
+Ex : ++i ;
+
+i=5;
+System.out.println(++i); i=6
+
+Post Increment :-
+*************
+In case of post increment the value will be incremented by one when the cursor is moved to next statement.
+Ex : i++ ;
+
+i=5;
+System.out.println(i++); i=5
+System.out.println(i);i=6
+
+
+
+
+-- (Decrement operator ) :-
+************************
+i-- which is equals to i = i-1;
+
+Pre Decrement :-
+*************
+In case of pre decrement the value will be decremented by one at the time of statment execution itself.
+Ex : --i ;
+
+i=5;
+System.out.println(--i); i=4
+
+Post Decrement :-
+*************
+In case of post decrement the value will be decremented by one when the cursor is moved to next statement.
+Ex : i-- ;
+
+i=5;
+System.out.println(i--); i=5
+System.out.println(i);i=4
+
