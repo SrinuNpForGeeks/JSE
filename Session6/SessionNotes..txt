@@ -1,0 +1,78 @@
+Understanding Object Oriented Princeples :-
+****************************************
+class : -
+******
+	"class" is a user defined data type.
+	"class" is a collection of a data members and methods.
+	"class" is a logic view.
+	
+Syntax :-
+	class <Class_Name>
+	{
+	Data_Members;
+	Methods;
+	}
+
+class HumanBeing
+	{
+int humanMind = 1;
+int humanHands = 2;
+
+public void charecter(humanMind)
+{
+...
+...
+}
+	}
+
+=> We can not feel the class without an object.
+
+
+Understanding Object :-
+********************
+	=> Object is a physical representation of a class.
+	=> One class can have any number of Object's.
+	=> Every Object contains its own state, its identity, its own behaviour.
+	=> The State of an object represents data members of a class.
+	=> The behaviour of an object represents methods of a class.
+
+Object Creation syntax :-
+**********************
+	We should use "new" keyword to create the Object.
+
+	new <Class_Name>();
+
+	new HumanBeing(); //Here the HumanBeing object is created but which is not referred by any reference.
+
+HumanBeing srinu = new HumanBeing();
+
+Here "srinu" is a reference which is referring to HumanBeing Object.
+
+
+** In order to access the variable and methods of a class we should create the object.
+** We can access the variables and methods of a class using Object reference.
+
+
+Ex :-
+****
+
+class HumanBeing
+	{
+
+String qly = "B.Tech";
+
+public void designation()
+{
+System.out.println(" Designation is : S/W Eng");
+}
+
+public static void main(String args[])
+{
+HumanBeing srinu = new HumaBeing();
+
+System.out.println(" Qualificatio : "+srinu.qly);
+
+srinu.designation();
+}
+
+	}
