@@ -1,0 +1,53 @@
+
+
+Understanding Local Variables and Instance Variables :-
+******************************************************
+
+Instance Variables :-
+********************
+=> The Variables which are declared within the class can be called as instance variables.
+=> JVM will assigns defaults values to the instance variables at the time of Object creation.
+=> All instance variable can be accessible within the class directly.
+=> If we want to access instance variables outside the class , we need object reference.
+
+Ex :-
+class Sample
+	{
+int accNo ;
+String accName;
+float amount;
+boolean status; //Instance Variables.
+....
+....
+....
+	}
+
+Local Variables :-
+***************
+=> The Variable which declare within the method can be called as Local Variables.
+=> For the Local variables defaults values can not be assigned by the JVM.
+=> All the Local variables should be initialised before using.
+=> The Local Variables can be accessible only within the method.
+
+class Sample 
+	{
+....
+....
+public void display()
+{
+int pinCode = 10; // Local Variable
+
+System.out.println(" pinCode : "+pinCode);
+}
+	}
+
+Recursion in Java :
+
+Recursion in java is a process in which a method calls itself continuously. 
+A method in java that calls itself is called recursive method.
+It makes the code compact but complex to understand.
+
+In a Recursive program Base condition is mandatory.
+
+
+	
