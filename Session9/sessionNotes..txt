@@ -1,0 +1,121 @@
+Method Overloading :-
+******************
+Method Overloading is a concept of defining the Same method within the java class by changing the number of  parameters and type of parameters.
+
+Ex: - MethodOverloadingEx.java
+
+Advantage :-
+**********
+MethodOverloading increases the readability of the Java Program.
+
+understanding "this" keyword :-
+*****************************
+=> "this" is an implicit reference variable created by JVM at the time of Object creation.
+=> "this" keyword is used to by the JVM inorder to refer current class instance variables and methods.
+=> "this" will allways refers current class instance (i.e object).
+
+Ex: -ThisVarApp.java , ThisVarApp diagram.
+
+Usage of this : -
+**************
+** Whenever Local Variables and Instance Variables are same , we can deferentiate them using "this" keyword.
+
+Ex: -
+****
+ThisEx.java
+
+Inheritance :-
+************
+Inheritance is a concept of reusing properties of one class into another class.
+
+In java Inheritance can be supported in 3 ways
+
+1. IS - A Relationship
+
+2. HAS - A Relationship
+
+3. USE - A Relationship.
+
+
+=> IS - A Relationship :-
+   ******************
+
+	In case "IS - A Relationship" we use "extends" to reuse properties of one class into another class.
+
+There are 3 types of "IS - A Relationship's"
+
+1. Single Level Inheritance 
+
+2. Multi Level Inheritance 
+
+3. Hierarchical Inheritance 
+
+Single Level Inheritance : Here we have single level of inheritance. Ex:- Relationship with "Father and Son".
+
+Multi Level Inheritance : Here we have more than one level of inheritance. Ex:- Relationship with 
+			  "GrandFather and Father and Son ".
+
+Hierarchical Inheritance : Here one parent can have more than once child classes.
+
+refer Inheritance Diagram.
+
+
+Why java does not support multiple inheritance ?
+
+refer MultipleInheritance diagram.
+
+Observations on inheritance Concept :-
+***********************************
+1. Whenever we inherit the class, the parent data can never be loaded into the child class.Still the child class can able to refer parent data using "super concept" in java.
+
+
+2. The "private" members of Parent class won't be accessible from child class.
+
+
+super keyword && super()  constructor :-
+****		 *******
+
+super keyword :-
+****
+=> "super" keyword is an implicit reference variable , created by JVM , which always refers to parent class data members..
+=> When super class variables and child class variables are same , we can differentiate them using "super" keyword.
+
+refer SuperEx1.java
+
+
+super()  constructor :-
+*******
+
+=> super() constructor is used by the JVM in-order to invoke super class constructor.
+
+=> JVM by default adds "super()" constructor  as a first statement within the Child Constructor.
+
+=> Whenever we are trying to create child class object, JVM internally invokes super() constructor to initialise parent class data members.
+
+=> The parent class data members can be refred with the  implicit reference variable i.e "super".
+
+refer SuperEx.java and SuperDiagram.
+
+Note: 
+
+=> Within the parent class if there is no default constructor we should call explicitly using super() constructor.
+
+reder SuperEx2.java
+
+=> The calling to super() constructor must be the first statement within the constructor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
