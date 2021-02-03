@@ -1,0 +1,246 @@
+Method Overloading :-
+******************
+
+Method OVerloading is a concept of defining same method within the java class by changing the number of parameters or type of parameters.
+
+Ex :-
+
+class Message
+	{
+public void display()
+{
+System.out.println(" From Message : display Demo on Method Overloading ");
+}
+
+
+public void display(int count)
+{
+System.out.println(" Count :  "+count);
+}
+
+public void display(String msg)
+{
+System.out.println(" msg :  "+msg);
+}
+	}
+
+
+public class MethodOverloadingEx
+	{
+public static void main(String args[])
+{
+Message obj = new Message();
+obj.display();
+obj.display(10);
+obj.display("Hi Good Morning");
+}
+	}
+
+Advantage :-
+********
+Which increases the readability of the java programe.
+
+refer MethodOverloadingAdvEx.java
+
+**************************************
+
+Method Overriding :-
+******************
+Method Overriding is a concept of redefining the parent class method within the child class.
+
+
+Rules for method Overrinding :-
+****************************
+=> You can say the method is overriden when the child class has define the       same method signature.
+   Method Signature involves acces specifier , return type , method name and parameters.
+
+=> The child class Overriding method should not have weaker access specifier compare to Parent class method.
+
+
+Ex :-
+****
+class Vechile
+	{
+protected void run()
+{
+System.out.println("\n Vechile is Running ");
+}
+	}
+
+
+class Bus extends Vechile
+	{
+
+public void run()
+{
+System.out.println("\n Bus is Running ");
+}
+
+	}
+
+=> MethodOverriding can not be possible by changing the return type.
+
+
+
+Polymorphism :-
+*************
+Single Parent class reference can able to refer any number of Child class Object's that is called polymorphism.
+
+Rule :-
+*****
+	**Whenever the Parent reference is pointing to the child object's, the parent reference can refer only the methods which are declared in parent class.
+	**Using Parent reference we can not call child call specific methods.
+
+refer : PolymorphismEx.java
+
+
+There are two types of Polymorphism's
+
+	1. Compile-time Polymorphism.
+	2. Runtime Polymorphism.
+
+
+Compile-time Polymorphism :-
+**************************
+Here calling to Overloaded method can be decided at compile time so it is called Compile-time Polymorphism.
+
+
+Ex :-
+*****
+class  Vechile
+	{
+
+public void run() 
+{
+	System.out.println(" Vechile is Running ");
+}
+
+public void run(int hp)
+{
+	System.out.println(" Vechile runs with HP = "+hp);
+}
+	}
+
+class  Bike extends Vechile
+	{
+	public Bike()
+		{
+	System.out.println(" \n\n From Bike Cosntructor");
+		}
+	}
+
+public class CompileTimePolymorphismEx
+	{
+public static void main(String args[])
+{
+	Vechile c = new Bike();
+	c.run();
+	c.run(150); // Calling to these overloaded methods is deciding at 			compile time.
+}
+	}
+
+
+Runtime Polymorphism :-
+**************************
+Here calling to the Overridden method can be decided at run time so it is called Runtime Polymorphism.
+
+Ex :
+****
+class  Vechile
+	{
+
+
+public void run() 
+{
+	System.out.println(" Vechile is Running ");
+}
+
+	}
+
+
+class  Bike extends Vechile
+	{
+	
+	public void run() 
+		{
+	System.out.println(" Bike is Running ");
+		}
+
+	}
+
+
+
+public class RunTimePolymorphismEx
+	{
+public static void main(String args[])
+{
+	Vechile c = new Bike();
+	c.run(); // Here the calling to overriden method is decided at runtime
+		 
+}	
+
+	} 
+
+
+
+
+final keyword concept :-
+*********************
+
+final is a keyword which can be applied to a
+
+	=> Variable
+		OR
+	=> Method 
+		OR
+	=> Class
+
+
+final Variable :-
+**************
+=> If we declare a variable as final which can not be modified.
+=> For the final variables default values won't be assigned by the JVM.
+=> final variables must be initialized before using.
+
+Blank final variable :-
+********************
+** We can initialise the final variable within the constructor which is called blank final variable.
+
+Blank Final Variables can be used for the implementation of PANCard application.
+
+Note:-
+****
+** If it is a static final variable , we can initialise them in static block.
+
+
+final method :-
+*************
+=> If we declare a method as final which can not be overridden.
+
+
+final class :-
+************
+	If we declare a class as "final" , which can not be inherited.
+
+Sample.java
+***********
+final class Sample
+	{
+public void getInfo()
+{
+System.out.println("\n\n Information about the Sample Class :");
+}
+	}
+
+class Child extends Sample
+	{
+	}
+
+
+Once we compile this we get the following error : -
+
+Sample.java:9: error: cannot inherit from final Sample
+class Child extends Sample
+
+
+
