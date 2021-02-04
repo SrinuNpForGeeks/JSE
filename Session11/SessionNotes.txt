@@ -1,0 +1,170 @@
+Has - A Relationship :-
+********************
+=> HAS-A Relationship is a concept of declaring user defined data type as an instance variable.
+
+class Item
+	{
+private String name = "Santoor";
+private int price = 35;
+
+public void getItemDetails()
+{
+	System.out.println(" Name  : "+name);
+	System.out.println(" Price : "+price);
+}
+	}
+
+class Store
+	{
+private Item i = new Item(); // HAS-A Relationship
+
+public void getStockInfo()
+{
+	System.out.println(" Available Stock is :");
+	i.getItemDetails();
+}
+	}
+
+
+USE - A Relationship :-
+********************
+=> USE-A Relationship is a concept of defining user defined data type as a local variable within a method.
+
+class Item
+	{
+public void getItemData()
+{
+System.out.println(" From Item : This is an information about Item ");
+}
+	}
+
+
+class Shop
+	{
+public void displayItems(Item obj) // USE-A Relationship
+{
+obj.getItemData();
+}
+	}
+
+
+Understanding static concept :-
+*****************************
+Java gives "static" concept for memory management.
+
+"static" is a keyword which can applied 
+i) to a variable
+ii) to a method
+iii) to a block.
+
+
+1) static variable :-
+   ****************
+=> For a static variable memory will be allocated only once.
+=> All the static variables will be instantiated  within the " static area or class area " at the time of class loading.
+=> Static variable can be shared by all the Object's.
+
+static method :-
+*************
+=> If we apply a static keyword to the method then it is called static method.
+=> A static method allows only static variables. 
+=> A static method does not allow non-static variables.
+=> static method can directly invoked with the help of a class name.
+
+Syntax :-
+********
+ClassName.methodName();
+
+Ex :- StaticMethodEx.java
+
+Static Factory Method : -
+**********************
+A static method of a java class having the capability of returning it's own java class object reference .
+
+Ex: -
+
+class Sample
+	{
+public void getInfo()
+{
+System.out.println("\n\n Sample : getInfo");
+}
+
+public static Sample getSampleObject()
+{
+Sample s = new Sample();
+return s;
+} //Static Factory method.
+	}
+
+
+
+static block :-
+*************
+=> static block is mainly used to initilize static variables.
+=> static block will be executed by the JVM only once at the time of class loading.
+
+static
+{
+... used to initialise static variables.
+...
+} //Static Block
+
+
+The Diff b/w static block and Constructor Block ...?
+
+1. The Static Block is used to initialise static variables where as Constructor Block is used initialise non-static variables.
+
+2. The Static Block executed by the JVM only once at the time of class loading .
+
+3. How many times we create a object so many time's JVM executes the  Constructor Block .
+
+
+
+Design Pattern :-
+**************
+Design Patterns are specifications which contains set of rules and regulations. If we follow Design Patterns we can increase the performance of a java application.
+
+Singleton Design Pattern :-
+************************
+Whenever an Object State is common  for all the client request's,  why we need to create a   object every time, create the object only once then reuse the reference more than once.
+
+In simple Singleton object means only one java class object can be used by all the user requests.
+
+Procedure to develop singleton object :-
+**************************************
+
+1. Declare "private static  final " reference variable as an instance variable.
+
+2. Create the object in "static-block".
+
+3. Make the "Constructor" as private.
+
+4. Return the object reference from static factory method.
+
+Ex: -
+****
+	class Sample
+	{
+1.private static final Sample s;
+
+2.static
+{
+s = new Sample();
+}
+
+3.private Sample()
+{
+}
+
+4.public static Sample getSample()
+	{
+return s;
+	}
+	}
+
+
+
+
+
+
