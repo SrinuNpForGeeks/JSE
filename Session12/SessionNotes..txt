@@ -1,0 +1,206 @@
+
+Understanding Command Line Arguments :-
+************************************
+=> Whatever values we pass at runtime those are called as Command Line Arguments.
+
+=> By default JVM treats all the Command Line Arguments as String values.
+
+=> JVM groups all Command Line Arguments as a String[] array and pass them to the main(..) method.
+
+
+Ex :- refer CommandLineArgsEx.java 
+
+Execution Procedure :-
+*******************
+
+Compile >javac CommandLineArgsEx.java
+
+Run >java CommandLineArgsEx Srinu 1242 5000.52
+
+Here every Command-line Argument can be separated with the "Space" .
+
+
+Understanding "public static void main(String args[])" :-
+******************************************************
+
+=> "main" is a keyword , which indicates starting of the program execution. JVM will always starts the programe execution from the main(..) method.
+ 
+=> "void" is  a return type. If the method contains return type as "void"  we need not to return any value.
+
+=>  They given main(..) method as "static" so that JVM can call the main(..) method directly with the help of class name.
+
+=> main(..) method is "public"  so that we can access "main(..)" from anywhere.
+
+=> String args[] can be used to work with command line arguments.
+
+Undestanding "System.out.println" :-
+**********************************
+
+=> "PrintStream" is a predefined java class which declares overloaded 
+    println() methods. These println() methods have the logic to connect with     console and prints the output.
+
+=> "System" is a predefined java class which declares "PrintStream" as static reference variable with "out".
+
+
+
+public class PrintStream 
+	{
+public String println(...)
+{
+....
+....
+}
+	}
+
+
+public class System
+	{
+public static PrintStream out ;
+...
+....
+	}
+
+So that to access the println(..) method of PrintStream class we need to write the following statement
+
+"System.out.println(..)".
+
+Abstraction :-
+***********
+Abstraction is a Object Oriented Principle.
+
+Abreaction principle says hides the implementation and shows the functionality.
+
+In java Abstraction can be supported in two ways.
+
+	=> 1. abstract classes 
+	=> 2. interfaces	
+
+abstract classes :-
+****************
+
+'abstract' is keyword which can be applied to either to a 'class' or to the 'method'.
+
+abstract method :-
+***************
+=> An abstract method does not contains  definition.
+
+Ex :- public abstract void display();
+
+abstract class :-
+***************
+=> An abstract class can contain fully implemented methods (OR) fully unimplemented  methods (OR) combination of both.
+=> If a java class contains at-least one abstract method then we should declare class as an abstract.
+=> An abstract class can not be instantiated.
+
+Ex :-
+***
+abstract class Sample
+	{
+public abstract void display();
+
+public void getInfo()
+{
+System.out.println(" Demo on Abstraction : getInfo ");
+}
+
+public static void main(String args[])
+{
+Sample s = new Sample(); // Error at compiletime Sample is abstract; cannot be instantiated
+}
+	}
+
+=> The First concrete class of an abstract class should provide definition for all the abstract methods of an abstract class otherwise we should declare the class as an abstract.
+
+
+Note :-
+******
+concrete class is nothing but a sub class or child class.
+
+=> An abstract class can contain the constructor. From the child class constructor , abstract class constructor is called to initialise the parent variables.
+
+interfaces :-
+*********
+=> 'interface'  is a special  data type.
+=> An 'interface' contains abstract methods.
+=> All the variables which are declared within the interface are 'public static final ' variables.
+=> All the methods which are declared within the interface are 
+   'public abstract ' methods
+
+interface Sample
+	{
+public static final int count = 20;
+public abstract void display();
+public abstract void getInfo();
+	} 
+
+=> From java 1.8 onwards within interface we can have implemented methods in the form of static and default methods. (Will be covered)
+
+=>  Always a 'class' will 'implements' the 'interface'.
+
+=>  Always a 'class' will 'extends' another 'class'.	
+
+=>  An 'interface' will always 'extends' another 'interface'.
+
+=> The First concrete class which is implementing an interface , should provide the definition for all the abstract methods of an interface otherwise declare the class as 'abstract'.
+
+=> 'interface' does not contains a Constructor . 
+
+=> JVM treats by defaults  all the variables which are declared within the interface are 'public static final ' variables. 
+
+=> JVM treats by defaults  all the methods which are declared within the interface are 'public abstract ' methods.
+
+interface Test
+	{
+int count = 10;
+void display();
+	}
+
+compile the Test class.
+
+See the javap of a Test class
+
+Compiled from "Test.java"
+interface Test {
+  public static final int count;
+  public abstract void display();
+}
+
+Note :-
+*****
+	In generally JVM treats all the command line arguments as String values.
+
+=> we have "Integer" class which contains "public static int valueOf(String)" method , which converts the String representation of  integer value into "Integer format".
+
+Ex : int count = Integer.valueOf("125");
+
+refer : SampleApp.java
+
+
+=> Similarly for float we have "Float" class which contains "public static int valueOf(String)"
+
+Ex: 
+
+	float balance = Float.valueOf("1500.25f");
+
+etc
+
+
+=> From the command prompt we can also pass classes at runtime . But JVM treat these classes as String values.
+
+=> "java.lang.Class" which converts String representation of a "java class" into "class format".
+
+=> The java.lang.Class contains following methods 
+
+	public static Class forName(String className) :- 
+        ********************************************
+	=> It converts the String representation of java class into class format.
+	=> It will load the provided class into the RAM.
+	=> It will create the Object of "java.lang.Class", This "Class" object contains 		the meta information about he loaded class.
+
+
+
+=> public Object newInstance()
+   ***************************
+	The newInstance() method will create the object of loaded class. 
+
+
