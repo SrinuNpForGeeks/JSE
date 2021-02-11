@@ -1,0 +1,168 @@
+
+Understanding 'throw' keyword :-
+******************************
+
+=> 'throw' keyword can used to forward  the exceptions .
+
+=>  The 'throw' can stop the flow of execution and forwards the exception to the caller.
+
+=>  throw keyword can forward checked and un checked exceptions.
+
+=>  Checked exceptions should be declared on the method header before forwarding using "throw" keyword.
+
+=> UNChecked exception can be forwarded directly using "throw" keyword.
+
+=> For forwarding UnChecked Exception declaration is not needed.
+
+
+Userdefined Exceptions :-
+**********************
+
+=> The Exceptions  which are developed by the  Programer can be called as UserDefinedExceptions.
+
+=> UserDefined Exceptions can be checked or unchecked exception
+
+Procedure to develop Userdefined Exceptions :-
+*******************************************
+
+1. Develop a java class by extending either "java.lang.Exception" OR  "java.lang.RuntimeException" class.
+
+2. Define the default constructor within the java class.
+
+3. Define the parameterized constructor which is taking "String" as a parameter and call the super class parameterized constructor.
+
+	Calling super class constructor help us to display exception message in a simple way.
+	
+
+InsuffientBalanceException.java
+
+package com.oracle.exp;
+
+public class InsuffientBalanceException extends Exception
+	{
+public InsuffientBalanceException()
+{
+	super();
+}
+
+public InsuffientBalanceException(String expDesc)
+{
+super(expDesc);
+}
+	}
+
+
+Understanding  "java.lang.String" :-
+*********************************
+=> java.lang.String is a predefined java class.
+
+=> The "java.lang.String" is representing a sequence of charecters. 
+
+=> Within the "String" every charecter is uniqly identified by an index number. Here the index number startwith 0 and ends with "n-1".
+
+=> Actually we have an interface as "java.lang.CharSequence" which is declaring a specification as sequence of charecters.
+
+=> This specificication is implimented "String" ,"StringBuffer" , "StringBuilder" class. 
+
+=> Which means the "String" ,"StringBuffer" , "StringBuilder" are the sub classes of "java.lang.CharSequence".
+
+
+=> java.lang.String :-
+   ****************
+
+The String object can be created in two ways.
+
+	1. Using literal :-
+	   *************
+
+		String msg = "welcome";
+
+If we create String object using literal then JVM creates the object within the String Constant Pool.
+If the String object is already exist in the String Constant pool then JVM returns the same object . 
+
+Ex: String s1 = "Welcome";
+    String s2 = "Welcome";
+	Here s1 & s2 pointing to same object in String Constant Pool.
+
+
+	2. Using  "new" keyword :-
+	   *********************
+		
+		String  message = new String("Welcome");
+
+If we use new keyword  then JVM will always creates the new object within the Heap.
+
+	Ex: String s1 = new String("Welcome");
+    	    String s2 = new String("Welcome");
+	Here s1 & s2 pointing to diffrenet objects in String constanct pool.
+
+return StringConstantPool diagram.
+
+
+
+*** String is an immutable object. Which means we can not change the state of a String object directly.
+
+	Ex : String s1 = "Welcome";
+	     s1.concat(" To Hyd") ;
+	   System.out.println(s1); //o/p Welcome: 
+
+	Here s1 won't be updated directly because it is an immutable object.
+
+	If you would like to update the value, we should explicitly assign to s1.
+		s1 = s1.concat(" To Hyd") ; // o/p Welcome To Hyd
+	     
+
+String Comparission :-
+******************
+We can compare String in three ways 
+
+1. public boolean equals(String) :- It will compare content not the references. returns true if the both String's content is same.
+
+String s1 = "Srinu";
+String s2 = new String("Srinu");
+
+if(s1 == s2) returns false.
+
+if(s1.equals(s2)) returns true
+
+Note :- 
+*****
+	Here equals(String) method is case Sencitive.  So we can use public boolean equalsIgnoreCase(String) if we don't want to consider case sensitiness.
+
+
+
+2. public int compareTo(String) :- It will compare content not the references. 
+
+The compareTo(String) method 
+reuturns 0  if both the String's are equals.
+returns +ve number if the 1st String is greater than 2nd String
+return -ve number if the 1st String is less than 2nd String.
+
+String s1 = "Srinu";  
+String s2 = "Venu";
+String s3 ="Srinu";
+
+
+s1.compareTo(s2) => return -ve number
+
+s2.compareTo(s1) => return +ve number
+
+s1.compareTo(s3) => return's 0
+
+Note :-
+****
+Similarly we have   public int compareToIgnoreCase(String);
+	
+3. == operator :-
+   ***********
+"==" operator will allways checks the refercens not the content.
+
+String s1 = "Srinu";
+String s2 = new String("Srinu");
+String s3 = "Srinu";
+
+if(s1 == s2) returns false.
+
+if(s1 == s3) returns true.
+
+
