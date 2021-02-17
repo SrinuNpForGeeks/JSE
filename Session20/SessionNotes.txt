@@ -1,0 +1,176 @@
+
+Sleep method in java
+**********************
+
+The sleep() method of Thread class is used to sleep a thread for the specified amount of time.
+
+Syntax of sleep() method in java
+
+The Thread class provides two methods for sleeping a thread:
+
+public static void sleep(long miliseconds)throws InterruptedException
+public static void sleep(long miliseconds, int nanos)throws InterruptedException
+
+=> The "java.lang.Thread" class has the following method to get the name of the Thread :-
+
+public static Thread currentThread() :- Which will returns curretly running thread object.
+
+public String getName() :-  It returns the Thread name.
+
+public void setName(String) :- This is used to set the name to the Thread.
+
+
+=> Single Task is developed by multiple Threads :-  refer ex1
+   *******************************************	
+
+
+Can we start a thread twice
+***************************
+
+No. After starting a thread, it can never be started again. If you does so, an IllegalThreadStateException is thrown. In such case, thread will run once but for second time, it will throw exception.
+
+Let's understand it by the example given below:
+
+public class SampleThread extends Thread{  
+ public void run(){  
+   System.out.println("running...");  
+ }  
+ public static void main(String args[]){  
+  SampleThread  t1=new SampleThread();  
+  t1.start();  
+  t1.start();  
+ }  
+}  
+
+output 
+       running
+       Exception in thread "main" java.lang.IllegalThreadStateException
+
+
+The join() method
+******************
+The join() method waits for a thread to die. In other words, it causes the currently running threads to stop executing until the thread it joins with completes its task.
+
+Syntax:
+
+public void join()throws InterruptedException
+public void join(long milliseconds)throws InterruptedException
+
+
+Naming Thread and Current Thread
+********************************
+Naming Thread
+
+The Thread class provides methods to change and get the name of a thread. By default, each thread has a name i.e. thread-0, thread-1 and so on. By we can change the name of the thread by using setName() method. The syntax of setName() and getName() methods are given below:
+
+public String getName(): is used to return the name of a thread.
+public void setName(String name): is used to change the name of a thread.
+
+
+Thread Scheduler in Java
+************************
+Thread scheduler in java is the part of the JVM that decides which thread should run.
+
+There is no guarantee that which runnable thread will be chosen to run by the thread scheduler.
+
+Only one thread at a time can run in a single process.
+
+The thread scheduler mainly uses preemptive or time slicing scheduling to schedule the threads.
+
+
+Difference between preemptive scheduling and time slicing :-
+*********************************************************
+
+Under preemptive scheduling, the highest priority task executes until it enters the waiting or dead states or a higher priority task comes into existence.
+
+Under time slicing, a task executes for a predefined slice of time and then reenters the pool of ready tasks. 
+The scheduler then determines which task should execute next, based on priority and other factors.
+
+
+Synchronisation in Java :-
+************************
+
+Synchronisation in java is the capability to control the access of multiple threads to any shared resource.
+
+Java Synchronisation is better option where we want to allow only one thread to access the shared resource.
+
+The synchronisation is mainly used to
+
+1.To prevent thread interference.
+2.To prevent consistency problem.
+
+
+
+Types of Synchronisation
+*************************
+
+There are two types of synchronisation
+
+Process Synchronisation
+
+Thread Synchronisation
+
+Here, we will discuss only thread synchronisation.
+
+Thread Synchronisation
+
+****************
+
+The synchronized keyword can used to work with synchronisation.
+
+In Java Synchronisation can be applied in three ways
+
+1.by synchronised method
+2.by synchronised block
+3.by static synchronisation
+
+
+Concept of Lock in Java  :-
+
+The synchronisation applies lock  to object so that at a time only one thread can access the resource. Once the thread execution is completed then it releases the lock so that other thread can join.
+
+
+Understanding the problem without Synchronisation
+
+	refer withoutsyncronizationapp
+
+Java synchronized method
+************************
+
+If you declare any method as synchronized, it is known as synchronized method.
+
+Synchronized method is used to lock an object for any shared resource.
+
+When a thread invokes a synchronized method, it automatically acquires the lock for that object and releases it when the thread completes its task.
+
+refer SynchronizedMethodLevelApp ex
+
+
+Synchronised block in java
+**************************
+Synchronized block can be used to perform synchronisation on any specific resource of the method.
+
+Suppose you have 50 lines of code in your method, but you want to synchronise only 5 lines, you can use synchronised block.
+
+If you put all the codes of the method in the synchronised block, it will work same as the synchronised method.
+
+Points to remember for Synchronised block
+
+Synchronised block is used to lock an object for any shared resource.
+
+Scope of synchronised block is smaller than the method.
+
+Syntax to use synchronised block
+
+synchronized (object reference expression) {   
+  //code block   
+}  
+
+refer SynchronizedBlockLevelApp 
+
+Static synchronisation :-
+**********************
+If we apply Synchronization on static method level then it is called Static synchronization.
+
+When we apply static synchronization then the lock will be applied at class level so that even the class has multiple objects only one thread can enter.
+
