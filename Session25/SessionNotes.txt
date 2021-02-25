@@ -203,12 +203,12 @@ Serialization :-
 
 			OR
 
-		**  Writing the State object into the File can be called as Serialization.
+		**  Writing the State of an object to the File can be called as Serialization.
 
 DeSerialization :-
 *************
 
-		**  Reading the State object from the File can be called as DeSerialization.
+		**  Reading the State of an object from the File can be called as DeSerialization.
 
 3. java.io.ObjectOutputStream  :- 
    **************************
