@@ -1,0 +1,393 @@
+Reflection API :-
+***************
+=> Reflection API can be used to get the meta information about the class.
+=> Using Reflection API we can change the runtime behaviour of a java class object.
+=> Which means we can access the private member of a java class outside the class.
+
+JDK has given "java.lang.Class" to work with reflection api.
+
+
+java.lang.Class methods :-
+***********************
+
+public Class forName(String) throws ClassNotFoundException
+
+public Object newInstance() throws InstantiationException,IllegalAccessException
+
+public String getName() returns the loaded class name
+
+public Field[] getDeclaredFields() :- Return all the declared variables of a java class.
+
+public Method[] getDeclaredMethods() :- Return all the declared Methods of a java class.
+
+public Constructor[] getDeclaredConstructors() :- Return all the declared Constructors of a java class.
+
+
+java.lang.reflect.Field :- Field class i an object oriented representation of a java class variable.
+Using Field class we can access the data of member variable.
+
+java.lang.reflect.Method :- java.lang.reflect.Method class i an object oriented representation of a java class method.
+		Using java.lang.reflect.Method class we can get the meta information about the 'method'.	
+	Using java.lang.reflect.Method we can also invoke private method.
+
+
+java.lang.reflect.Constructor :- Constructor class i an object oriented representation of a java class constructor.
+
+public Method getDeclaredMethod(String methodName , Class... paramsType) :- It is going to return method  in the form of java.lang.reflect.Method object.
+
+
+public Field getDeclaredField(String fieldName) :- It is going to return instance variable in the form of java.lang.reflect.Field object.
+
+public Constructor getDeclaredConstructor() :- It is going to return default constructor in the form of java.lang.reflect.Constructor.
+
+public Constructor getDeclaredConstructor(Class...) :- It is going to return parameterized constructor in the form of java.lang.reflect.Constructor.
+
+
+
+Accessing private methods of a java class :-
+******************************************
+
+java.lang.reflect.Method :- 
+
+
+methods of java.lang.reflect.Method :-
+
+public void setAccessible(boolean) :- If we set as true we can access the method  of a java class otherwise we can not access.
+
+public Object invoke(Object loadedClassObject , Object... methodParamValues) :- Once we call the invoke(..) method the java class method will be executed.
+
+
+Accessing private Variable of a java class :-
+******************************************
+
+java.lang.reflect.Field :- 
+
+		Field class can be used to access private member of a class.
+
+methods of java.lang.reflect.Field :-
+
+public void setAccessible(boolean) :- If we set as true we can access the variable of a java class otherwise we can not access.
+
+public Object get(Object loadedClassObject) :- return the Field Value.
+
+
+Accessing private Constructor of a java class :-
+******************************************
+public void setAccessible(boolean) :- If we set as true we can access the variable of a java class otherwise we can not access.
+
+public Object newInstance() :- Creates a Object using default constructor.
+
+public Object newInstance(Object...) :- Creates a Object using parameterised constructor.
+			  
+
+					IOStreams :-
+					*********
+
+Stream :- Stream is  a sequence of bytes.
+
+IOStreams are used to communicate with Input and Output  devices.
+
+All the IOStream classes are presented in "java.io" package .
+
+The standard input and output streams given by java are 
+
+	1.System.out
+	2.System.in 
+	3.System.error
+
+
+java.io.InputStream  :-
+********************
+InputStream is an abstract class. The child classes of an InputStream can able read the data from Source. The Source can be File or Console or Socket.
+
+=> public int read() throws IOException :- This method can be used to read the data from the input stream. If this method								 returns -1. Which indicates the end of the file.
+
+=> public void close() throws IOException :- This method is used to close the Stream.
+
+java.io.OutputStream :-
+********************	
+OutputStream is an abstract class. The child classes of the OutputStream can able write the data to the Destination. The Destination can be File or Console or Socket.
+
+=> public void write(int) throws IOException :- This method can be used write a single byte to the output stream.
+
+=> public void write(byte[]) throws IOException :- This method can be used write a array of bytes to the output stream.
+
+=> public void flush() throws IOException :- This method moves the data from the stream to file. 
+
+=> public void close() throws IOException :- This method is used to close the Stream.
+
+
+We already know that within the Stream the data can be transferred in the form of Sequence of bytes.
+
+refer IOStreams,InputStream,OutputStream diagrams.
+
+
+java.io.FileOutputStream :-
+*************************
+=> FileOutputStream is used to write the data to the file.
+
+Constructor :-
+**********
+public FileOutputStream(String fileName) :- It will create the file with the specified name
+
+
+FileInputStream :-
+***************
+
+=> FileInputStream is used to read the data from the file.
+
+Constructor :-
+**********
+public FileInputStream(String fileName) :- It the file is not exist then it throws FileNotFoundException.
+
+
+ByteArrayOutputStream :-
+*********************
+The ByteArrayOutputStream can be used to write into more than one file.
+
+Constructor :-
+**************
+public ByteArrayOutputStream()
+
+The ByteArrayOutputStream has "public void writeTo(OutputStream) throws IOException" method to write the data to the Stream.
+
+
+SequenceInputStream :-
+*******************
+The SequenceInputStream can be used to read the data more than one file.
+
+Constructor :-
+**************
+public SequenceInputStream(InputStream , InputStream) :- This is used to read data from from two files.
+public SequenceInputStream(Enumeration) :- This is used to read data from  more than two files.
+
+Understanding HighLevel Output and Input Streams :-
+************************************************
+1. BufferedOutputStream :- 
+   ********************
+	=> BufferedOutputStream  uses to write the data to the file.
+	=> BufferedOutputStream internally uses the concept of buffer so that it increases the performance of the application.
+
+	Constructor :-
+	***********
+
+public BufferedOutputStream(OutputStream) :- We create the BufferedOutputStream object by passing OutputStream object.
+
+2. BufferedInputStream :- 
+   ********************
+	=> BufferedInputStream  used to read the data from the file.
+	=> BufferedInputStream internally uses the concept of buffer so that it increases the performance of the application.
+
+	Constructor :-
+	***********
+
+public BufferedInputStream (InputStream) :- We create the BufferedInputStream object by passing InputStream object.
+
+
+understand java.io.Serializable interface :-
+*******************************
+
+=> java.io.Serializable interface is a marker interface . which does not contain any abstract methods.
+
+=> For a java.io.Serializable interface a special meaning was defined in JVM.
+
+=> If any java class which is implementing java.io.Serializable interface  then JVM treats those object's as Serializable obejcts.
+
+=> For all the Serializable obejct JVM will some additional functionalities at run time so that all the Serializable obejct can be maintained over the network.
+
+
+Serialization :-
+*************
+
+		** Maintaining the Object State Over the network can be called as a Serialization.
+
+			OR
+
+		**  Writing the State object into the File can be called as Serialization.
+
+DeSerialization :-
+*************
+
+		**  Reading the State object from the File can be called as DeSerialization.
+
+3. java.io.ObjectOutputStream  :- 
+   **************************
+	Using ObjectOutputStream we can write the state of an object to the File.
+
+		public void WriteObject(Object) throws IOException :- writes the State of object to the file.
+		public void flush()
+		public void close()
+
+ObjectOutputStream can write the Object state to the file only when it is Serialization object otherwise throws SerializationException.
+
+	Constructor :-
+	************
+	public ObjectOutputStream(OutputStream) 
+
+4. ObjectInputStream 
+   *****************
+	Using ObjectInputStream we can read the state of an object from the File.
+
+	public Object readObject() throws IOException,ClassNotFoundException 
+
+	public voic close();
+
+	Constructor :-
+	************
+	public ObjectInputStream(OutputStream) 
+
+
+	refer SerializationApp folder.
+	
+**************************
+
+transient keyword :-
+*****************
+
+=> If we apply transient keyword on any data member which can not be serialized.
+
+	Ex: -
+
+package com.oracle.bean;
+import java.io.Serializable;
+
+public class AccountHolderBean implements Serializable
+	{
+private int accountNumber;
+private transient String accountName;// accountName can not be serialized.
+private float accountBalance; 
+....
+...
+	}
+
+refer TransientApp folder.
+
+What is serializationVersionID? Why to give custom serializationID?
+
+The serialization runtime associates with each serializable class a version number, called a serialVersionUID, which is used during deserialization to verify that the sender and receiver of a serialized object have loaded classes for that object that are compatible with respect to serialization. 
+
+If the receiver has loaded a class for the object that has a different serialVersionUID than that of the corresponding sender's class, then deserialization will result in an  InvalidClassException. 
+
+A serializable class can declare its own serialVersionUID explicitly by declaring a field named serialVersionUID that must be static, final, and of type long:
+
+ANY-ACCESS-MODIFIER static final long serialVersionUID = 42L;
+If a serializable class does not explicitly declare a serialVersionUID, then the serialization runtime will calculate a default serialVersionUID value for that class based on various aspects of the class, as described in the Java(TM) Object Serialization Specification.
+
+However, it is strongly recommended that all serializable classes explicitly declare serialVersionUID values, since the default serialVersionUID computation is highly sensitive to class details that may vary depending on compiler implementations, and can thus result in unexpected InvalidClassExceptions during deserialization. 
+
+Therefore, to guarantee a consistent serialVersionUID value across different java compiler implementations, a serializable class must declare an explicit serialVersionUID value. 
+
+It is also strongly advised that explicit serialVersionUID declarations use the private modifier where possible, since such declarations apply only to the immediately declaring class serialVersionUID fields are not useful as inherited members.
+
+
+
+FileWriter and FileReader :-
+*************************
+
+Using FileWriter can write Charecter oriented data to the file directly.
+
+Constructor :-
+
+public FileWriter(String fileName)
+
+
+methods
+
+public void write(Char) throws IOException
+
+public void write(char[])  throws IOException
+
+public void flush() throws Exception;
+
+public voic close() throws Exception;
+
+
+
+Using FileRead can read Charecter oriented data from the file directly.
+
+Constructor :-
+
+public FileReader(String fileName)
+
+
+methods
+
+public int read() throws Exception;
+public voic close() throws Exception;
+
+
+Understanding java.io.PrintStream :-
+********************************
+
+The java.io.PrintStream has given following overloaded methods which are used to write the data into OuputputStreams.
+
+  public void print(boolean);
+  public void print(char);
+  public void print(int);
+  public void print(long);
+  public void print(float);
+  public void print(double);
+  public void print(char[]);
+  public void print(java.lang.String);
+  public void print(java.lang.Object);
+  public void println();
+  public void println(boolean);
+  public void println(char);
+  public void println(int);
+  public void println(long);
+  public void println(float);
+  public void println(double);
+  public void println(char[]);
+  public void println(java.lang.String);
+  public void println(java.lang.Object); 
+
+The above methods can also be used by the PrintStream class to write the data into the file.
+
+
+The "java.io.PrintStream" class is internally used by the "java.lang.System" class to print the data on the console.
+
+Constructor :-
+*************
+
+public PrintStream(OutputStream)
+
+
+
+Reading Data From Keyboard :-
+**************************
+
+1. Using java.util.Scanner class
+
+2. Using java.io.InputStreamReader
+
+java.io.InputStreamReader can make a stream between keybord and java application. We can not access data from "InputStreamReader" directly. 
+To work with InputStreamReader we need to make use of "java.io.BufferedReader". 
+
+InputStreamReader constructor 
+*****************************
+public InputStreamReader(java.io.InputStream) 
+
+
+BufferedReader constructor :
+*********************
+public BufferedReader(java.io.InputStreamReader)
+
+The BufferedReader given "public String readLine()" method to access the keybord data.
+
+3. Using java.io.Console :-
+   *********************
+
+The "java.io.Console" class has given following methods to read the input data.
+
+	1. public String readLine() :- this is used to read data.
+
+	2. public char[] readPassword() :- this is used to read sensitive data. Whatever password we enter on the console won't be visible to the user.
+
+
+Console class Object creation :-
+
+Console  c = System.console();
+
+
+
+
