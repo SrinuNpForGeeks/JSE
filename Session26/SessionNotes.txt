@@ -1,0 +1,389 @@
+	
+
+understand java.io.Serializable interface :-
+*******************************
+
+=> java.io.Serializable interface is a marker interface . which does not contain any abstract methods.
+
+=> For a java.io.Serializable interface a special meaning was defined in JVM.
+
+=> If any java class which is implementing java.io.Serializable interface  then JVM treats those object's as Serializable obejcts.
+
+=> For all the Serializable obejct JVM will some additional functionalities at run time so that all the Serializable obejct can be maintained over the network.
+
+
+Serialization :-
+*************
+
+		** Maintaining the Object State Over the network can be called as a Serialization.
+
+			OR
+
+		**  Writing the State object into the File can be called as Serialization.
+
+DeSerialization :-
+*************
+
+		**  Reading the State object from the File can be called as DeSerialization.
+
+3. java.io.ObjectOutputStream  :- 
+   **************************
+	Using ObjectOutputStream we can write the state of an object to the File.
+
+		public void WriteObject(Object) throws IOException :- writes the State of object to the file.
+		public void flush()
+		public void close()
+
+ObjectOutputStream can write the Object state to the file only when it is Serialization object otherwise throws SerializationException.
+
+	Constructor :-
+	************
+	public ObjectOutputStream(OutputStream) 
+
+4. ObjectInputStream 
+   *****************
+	Using ObjectInputStream we can read the state of an object from the File.
+
+	public Object readObject() throws IOException,ClassNotFoundException 
+
+	public voic close();
+
+	Constructor :-
+	************
+	public ObjectInputStream(OutputStream) 
+
+
+	refer SerializationApp folder.
+	
+**************************
+
+transient keyword :-
+*****************
+
+=> If we apply transient keyword on any data member which can not be serialized.
+
+	Ex: -
+
+package com.oracle.bean;
+import java.io.Serializable;
+
+public class AccountHolderBean implements Serializable
+	{
+private int accountNumber;
+private transient String accountName;// accountName can not be serialized.
+private float accountBalance; 
+....
+...
+	}
+
+refer TransientApp folder.
+
+What is serializationVersionID? Why to give custom serializationID?
+
+The serialization runtime associates with each serializable class a version number, called a serialVersionUID, which is used during deserialization to verify that the sender and receiver of a serialized object have loaded classes for that object that are compatible with respect to serialization. 
+
+If the receiver has loaded a class for the object that has a different serialVersionUID than that of the corresponding sender's class, then deserialization will result in an  InvalidClassException. 
+
+A serializable class can declare its own serialVersionUID explicitly by declaring a field named serialVersionUID that must be static, final, and of type long:
+
+ANY-ACCESS-MODIFIER static final long serialVersionUID = 42L;
+If a serializable class does not explicitly declare a serialVersionUID, then the serialization runtime will calculate a default serialVersionUID value for that class based on various aspects of the class, as described in the Java(TM) Object Serialization Specification.
+
+However, it is strongly recommended that all serializable classes explicitly declare serialVersionUID values, since the default serialVersionUID computation is highly sensitive to class details that may vary depending on compiler implementations, and can thus result in unexpected InvalidClassExceptions during deserialization. 
+
+Therefore, to guarantee a consistent serialVersionUID value across different java compiler implementations, a serializable class must declare an explicit serialVersionUID value. 
+
+It is also strongly advised that explicit serialVersionUID declarations use the private modifier where possible, since such declarations apply only to the immediately declaring class serialVersionUID fields are not useful as inherited members.
+
+
+
+FileWriter and FileReader :-
+*************************
+
+Using FileWriter can write Charecter oriented data to the file directly.
+
+Constructor :-
+
+public FileWriter(String fileName)
+
+
+methods
+
+public void write(Char) throws IOException
+
+public void write(char[])  throws IOException
+
+public void flush() throws Exception;
+
+public voic close() throws Exception;
+
+
+
+Using FileRead can read Charecter oriented data from the file directly.
+
+Constructor :-
+
+public FileReader(String fileName)
+
+
+methods
+
+public int read() throws Exception;
+public voic close() throws Exception;
+
+
+Understanding java.io.PrintStream :-
+********************************
+
+The java.io.PrintStream has given following overloaded methods which are used to write the data into OuputputStreams.
+
+  public void print(boolean);
+  public void print(char);
+  public void print(int);
+  public void print(long);
+  public void print(float);
+  public void print(double);
+  public void print(char[]);
+  public void print(java.lang.String);
+  public void print(java.lang.Object);
+  public void println();
+  public void println(boolean);
+  public void println(char);
+  public void println(int);
+  public void println(long);
+  public void println(float);
+  public void println(double);
+  public void println(char[]);
+  public void println(java.lang.String);
+  public void println(java.lang.Object); 
+
+The above methods can also be used by the PrintStream class to write the data into the file.
+
+
+The "java.io.PrintStream" class is internally used by the "java.lang.System" class to print the data on the console.
+
+Constructor :-
+*************
+
+public PrintStream(OutputStream)
+
+
+
+Reading Data From Keyboard :-
+**************************
+
+1. Using java.util.Scanner class
+
+2. Using java.io.InputStreamReader
+
+java.io.InputStreamReader can make a stream between keybord and java application. We can not access data from "InputStreamReader" directly. 
+To work with InputStreamReader we need to make use of "java.io.BufferedReader". 
+
+InputStreamReader constructor 
+*****************************
+public InputStreamReader(java.io.InputStream) 
+
+
+BufferedReader constructor :
+*********************
+public BufferedReader(java.io.InputStreamReader)
+
+The BufferedReader given "public String readLine()" method to access the keybord data.
+
+3. Using java.io.Console :-
+   *********************
+
+The "java.io.Console" class has given following methods to read the input data.
+
+	1. public String readLine() :- this is used to read data.
+
+	2. public char[] readPassword() :- this is used to read sensitive data. Whatever password we enter on the console won't be visible to the user.
+
+
+Console class Object creation :-
+
+Console  c = System.console();
+
+
+
+
+	Collections in Java
+	********************
+
+Collections Framework in java  can be used to manupulate the huge of amount of data.
+Collections Framework  has given predefined classes and interfaces to handle huge  amount object's.
+
+All the collection classes are available in "java.util" package.
+
+refer Collections Diagram :
+
+
+
+Methods of  java.util.Collection interface	
+	    ********************
+
+There are many methods declared in the Collection interface. They are as follows:
+
+
+1	public boolean add(Object element)	
+	is used to insert an element in this collection.
+
+2	public boolean addAll(Collection c)	
+is used to insert the specified collection elements in the invoking collection.
+
+3	public boolean remove(Object element)	
+	is used to delete an element from this collection.
+
+4	public boolean removeAll(Collection c)	is used to delete all the elements of specified collection from the invoking collection.
+
+5	public boolean retainAll(Collection c)	is used to delete all the elements of invoking collection except the specified collection.
+
+6	public int size()	
+return the total number of elements in the collection.
+
+7	public void clear()	
+	removes the total no of element from the collection.
+
+8	public boolean contains(Object element)	
+		is used to search an element.
+
+9	public boolean containsAll(Collection c) is used to search the specified collection in this collection.
+
+10	public Iterator iterator()	returns an iterator.
+
+11	public Object[] toArray() 
+		converts collection into array.
+
+12	public boolean isEmpty()	
+		checks if collection is empty.
+
+13	public boolean equals(Object element)	
+			matches two collection.
+
+14	public int hashCode()	
+		returns the hashcode number for collection.
+
+java.util.Iterator interface
+******************
+Iterator can be used to read the data from the collection.
+
+Using Iteration we can read  elements from the collection in forward direction only.
+
+Methods of java.util.Iterator interface
+
+
+There are only three methods in the Iterator interface. They are:
+
+public boolean hasNext() it returns true if iterator has more elements.
+
+public object next() it returns the element and moves the cursor pointer to the next element.
+
+public void remove() it removes the last elements returned by the iterator. It is rarely used.
+
+
+Understanding java.util.List :-
+****************************
+=> java.util.List is an interface and it is sub interface of java.util.Collection.
+=> java.util.List is an index based.
+=> The index number starts from 0 and End with n-1.
+=> The implementation classes for java.util.List is "ArrayList and LinkedList".
+
+
+
+java.util.ArrayList class
+*******************
+
+Java ArrayList class uses a dynamic array for storing the elements.It extends AbstractList class and implements List  interface.
+
+ArrayList class can contain duplicate elements.
+
+ArrayList class maintains insertion order.
+
+ArrayList class is non synchronized.
+
+ArrayList allows random access because array works at the index basis.
+
+ArrayList allows nullable values.
+
+
+Creation of ArrayList object without Generics :-
+
+If we don't apply generics then ArrayList can accept any type of data.
+
+Ex :-
+
+List list = new ArrayList();
+
+list.add(1242);
+list.add("Srinu");
+list.add("Venu");
+list.add(5000.50f);
+
+If we apply generics then ArrayList can accept only specific type of data.
+
+Ex :-
+
+List<String> list = new ArrayList<String>();
+
+list.add("Srinu");
+list.add("Venu");
+list.add(null);
+list.add("Srinu");
+
+We can access data from the Collection either using "Iterator" or Using Enhanced For Loop.
+
+The recomended way is to use Enhanced For Loop.
+
+LinkedList :-
+**********
+
+LinkedList is arranges elements using duble linked list concept.
+
+In LinkedList we will have nodes. Every Node contains data and adress pairs. 
+
+The first node contains the address of second node and so on.
+
+refer LinkedListEx
+
+LinkedList :-
+**********
+LinkedList is arranges elements using duble linked list concept.
+
+In LinkedList we will have nodes. Every Node contains data and adress pairs. 
+
+The first node contains the address of second node and so on  .
+
+ArrayList and LinkedList are index based so that which are specific methods inorder to perform data manupulation on index based.
+
+public boolean add(int index,Object element) :- adds element on specific index
+public boolean addAll(int index,Collection c) :- adds Collection on specific index
+public boolean remove(int index,Object element) :- removes element on specific index
+public boolean set(int index,Object element) :- replaces the element on specific index
+public Object get(int index) :- returns the element from the specific index.
+public E remove(int index) :- removes element from the specific index.
+public int indexOf(Object element) :- returns the index of the specified element.
+public ListIterator<E> listIterator() :- returns the ListIterator  object.
+
+** "Iterator" can read data only in forward direction where as "ListIterator" can read in forward and backword direction.
+
+java.util.ListIterator methods 
+
+public boolean hasNext();
+public E next(); 
+
+The above two methods are used to read data in forward direction.
+
+
+public boolean hasPrevious();
+public E previous();
+The above two methods are used to read data in backward direction.
+
+
+Difference B/W ArrayList and LinkedList :-
+
+=> ArrayList follows Dynamic Array Concept to store the elements Where as LinkedList follow double linked list concept.
+
+=> Whenever we remove element from the ArrayList remaining all elements should be shifted one index before wehre as in LinkedList only one element will shift before.(Just replaces the address).
+
+=> In ArrayList data manupulation is slow where as in LinkedList it's very fast.
+
