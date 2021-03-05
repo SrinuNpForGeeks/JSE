@@ -1,0 +1,36 @@
+java.util.Set :-
+*************
+java.util.Set is not an index based. 
+java.util.Set does not allow duplicated values .
+
+The implementation classes of Set are "HashSet" , "LinkedHashSet" and "TreeSet".
+
+
+java.util.HashSet :-
+*****************
+HashSet is not an index based
+HashSet does not allow duplicated values but allows nullable value.
+HashSet does not maintains insertion Order.
+
+java.util.LinkedHashSet :-
+***********************
+LinkedHashSet is not an index based
+LinkedHashSet does not allow duplicated values but allows nullable value.
+LinkedHashSet maintains insertion Order.
+
+java.util.TreeSet :-
+*****************
+TreeSet is not an index based
+TreeSet does not allow duplicated values .
+TreeSet does not allows nullable value.
+TreeSet arranges the in assending order.
+
+
+refer
+https://www.geeksforgeeks.org/internal-working-of-sethashset-in-java/
+
+https://www.geeksforgeeks.org/internal-working-of-hashmap-java/
+
+https://dzone.com/articles/working-with-hashcode-and-equals-in-java
+
+to understand hashCode() and equals(Object) methods.
